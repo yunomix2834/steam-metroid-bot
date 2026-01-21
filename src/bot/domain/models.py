@@ -10,4 +10,5 @@ class Deal:
     price_final: str
     price_original: Optional[str]
     url: str
+    image_url: Optional[str] = None
     tags: Sequence[str] = ()

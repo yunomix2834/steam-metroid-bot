@@ -9,7 +9,7 @@ from src.bot.application.use_cases import GetDealsUseCase
 def build_container(settings: Settings):
     cache = MemoryCache()
     http = HttpClient(user_agent="DiscordSteamDealsBot/1.0")
-    provider = SteamStoreDealsProvider(http=http)
+    provider = SteamStoreDealsProvider(http=http, concurrency=8)
     uc = GetDealsUseCase(provider=provider, cache=cache, cache_ttl_seconds=settings.cache_ttl_seconds)
     return {
         "cache": cache,
